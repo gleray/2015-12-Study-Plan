@@ -1,0 +1,168 @@
+\section{Papers Review}
+\subsection{Papers on electrical load clustering}
+
+\begin{itemize}
+	\item \bibentry{Chicco2006}.\\
+	 It represents the angle stone of the recent electrical consumption data analytics and give a overview of the clustering methods and their application/performance with the individual electrical load data.
+	\item \bibentry{kwac2014}.\\
+	 Interesting approach using K-means and defining a threshold $\theta$ to defined the gap between the cluster. According to their definition of the load profiles, 90\% of the patterns can be covered by 40\% of the cluster dictionary, which means that the 60\% remaining are rarely happening (could be catch out by defining a minimum cluster size). Some more info could have been extracted from the analysis of the clusters. Check reference [8].
+	\item \bibentry{chaouch2014}.\\
+	 according to \citeauthor{chaouch2014}: `\emph{household load curves are very volatile, their shape depends mainly on the customer behavior and are less dependent to weather conditions}'.Using unsupervised clustering algorithm on historical data the author creates a partition. He then use a nonparametric discriminative regression to assign a cluster to  newly created segments. Check reference [13],[22].
+	\item \bibentry{Quilumba2015}.\\
+	 Load consumption differs in both magnitude and time of use and is dependent on lifestyle, weather, and many other uncontrollable factors. Clustering aims at understanding better those factors and use this information for the forecast. The assumption is that similar patterns in electricity consumption, translate a similar behaviour. Neuronal Networks are used to do the prediction. The structure of the NN is pretty difficult to explain and thus to understand. However the way lagged loads taken into account should be considered (last 3h of the day, of the day before and of the week before) plus the parameters.
+	\item \bibentry{Haben2015}.\\
+	 According to \citeauthor{Haben2015}, `\emph{Choosing the correct attributes is potentially the most important aspect of a successful clustering}'. The clustering method used is finite mixture model (FMM) of Gaussian multivariate distributions. The FMM has several assets, it can handle both categorical and continuous data, it require no predefined metric and it uses the BIC for selecting the optimal number of clusters.  The partition reliability is checked using bootstrap. The clustering methods is as important as on which attribute (data) it is done (full data or specific features i.e peak load location and amplitude). The author discuss the importance of limiting the number of attributes to include in the clustering as it increase the complexity of the solution. A reasonable number of informative attributes is recommended (in other words, it deals with the importance of the pre-processing of the data). It is important to normalize the time series otherwise the clustering will be only done on the mean values. The authors use a public data from Ireland (see reference [7]). 
+	 \begin{enumerate}
+	 	\item Attributes 1 ---4: The relative average power in each time period over the entire year, 
+	 	\item Attribute 5: Mean relative standard deviation over the entire year,
+	 	\item Attribute 6: A seasonal score,
+	 	\item Attribute 7: A weekend versus weekday difference score.
+	 \end{enumerate}
+	 Check reference [12], [20], [5], [8], [9], [21]. 
+	\item  \bibentry{dent2013}.\\
+	  Uses the variability of the peak load to define the flexibility (actually it is more accurate to define it as the variability of the individual peak load). He defines what he calls attributes, which is for example the SD of the peak load on the weekdays and uses those attributes to perform a K-means algorithm.
+	\item \bibentry{Rasanen2010}.\\
+	 The author gives a thorough description of the actual way of generating and using the load profiles.
+	 The major factors affecting the customers load profile are:
+	 \begin{enumerate}
+		\item customer electricity use behavior and residence characteristics,
+		\item time of day, week or year and,
+		\item local climate factors such as temperature, humidity or solar radiation.
+	 \end{enumerate}
+	 The clustering algorithm used in this paper is the Self-Organizing Maps (SOM) method+K-means and hierarchical clustering.
+	\item \bibentry{Fidalgo2012}.\\
+	 As the tittle stands the authors have used the billing information (reliable?) in addition to the more classical consumption data to generate the clusters. According to the author the type of consumer (domestic, commercial, etc.) is an unreliable classification. They first use a grid based algorithm to generate the candidate partition. They afterward use the Simulated Annealing (SA) algorithm to solve the clustering which is considered here as an optimization problem. The approach is not data driven and answer only to the billing problem.
+	\item \bibentry{Ramos2015}.\\
+	 The paper presents  an interesting description of clustering algorithm (potential candidate) to cluster electrical loads. In addition to the review of the clustering algorithm, the authors have also written a section reviewing the different clustering validity indices as well as classification algorithm. The authors have developed a routine partitioning the data using different algorithm, however they are all based on the K-means, it would have been interesting to investigate the performance of different clustering strategy (HC, K-means, density-based algorithm). It is evaluated by 8 performance indices, which I doubt the benefit of comparing using several indices (for the ease of the reader?).
+	\item \bibentry{Ferreira2015}.\\
+	 The author states that, `\emph{recent works argue that methods based on artificial intelligence, specifically on C-means models, provide better quality in the clustering of load curves}'. Clustering and pattern recognition of multivariate time series (CPT-M) is the method used in this paper to do the clustering. The multivariate time series pattern recognition and clustering could be a potential candidate to apply after disaggregation. It will then cluster the consumer according to their individual appliances usage. The Figure 4 of the paper summarize clearly the methodology and its different stages.
+	\item \bibentry{Rhodes2014}.\\
+	 The authors followed a data-driven approach to create average seasonal curves for each home in the analysis and determine the number of representative residential electricity demand profiles within their respective seasons and attempt to draw correlations tot eh different profiles based on the data from the same homes. The data used in this paper are provided by the Texas advanced computer centers data applications resources Corals. The electrical consumption is associated with a survey data with demographic information and description of the electrical equipment in the house. The clustering is made on hourly data and focus on temporal variation of the load rather than on the average electricity usage, therefore the time series are normalized before clustering.
+	\item \bibentry{granell2015}.\\
+	 In this paper, the authors have used a Dirichlet process mixture model (DPMM) to cluster the data. It's a Bayesian model. They use data high resolution data (6 --- 8s of 219 households) from a European project called DEHEMS (check on Google). The data are converted to 1 min resolution after cleaning. No need to defined the number of clusters before calculation. Actually it does not deal at all with disaggregation (as we hear it).
+	\item \bibentry{saraiva2015}.\\
+	 Not relevant.
+	\item \bibentry{Dent2014}.\\
+	 The author states that `little work has focused on how the daily activity patterns of the household vary from day to day and how this can be used for clustering'. The patterns of specific appliances are detected using SAX (Symbolic Aggregate approXimation). The work has been conducted on data provided by NESEMP. The Mean Index Adequacy (MIA) and the Cluster Dispersion Indicator (CDI) are discussed by the authors as the main cluster validity measures when formulating load profiles. Again the article focuses on changes in the consumption rather than the absolute value. Thus the author normalize the individual load profiles.
+	\item \bibentry{Wang2015}.\\
+	 Typical load profiles (TLPs) is a settle expression to defined the load profiles?. The author gives a list of clustering validity indicators which seems more complete, the mean index adequacy (MIA), the clustering dispersion indicator (CDI), the similarity matrix indicator (SMI), the Davies-Bolden indicator (DBI), the scatter index (SI) and the mean square error. It is correctly signified in the paper that all the clustering validity indicators mentioned above are distance-based by using a metric (is there any other way to do clustering?). After cleaning, the data are scaled (normalized). The methodologies used to do the clustering are K-means and fuzzy C-means.
+	\item \bibentry{Waczowicz2015}.\\
+	 The proposed methodology aims at doing the same thing as the EcoGrid EU paper but instead of using HAC the authors use the fuzzy C-means. The data used in the paper are from the Olympic Peninsula Project and from the RESIDENS study.
+	\item \bibentry{Panapakidis2015}.\\
+	 The authors integrate a dimension reduction stage and suggest using among principal components analysis (PCA), Sammon mapping (SM), curvilinear component analysis (CCA) and canonical variate analysis (CVA). Quite often the authors talk about extracting the representative customers of the clusters in order to generate the load profiles. \citeauthor{Panapakidis2015} describes all the preprocesssing possibilities to do the load profiles:
+	 \begin{enumerate}
+	 	\item auto-regression model AR
+	 	\item power indices (PI), which characterize the patterns
+	 	\item load shape factors (LSF)
+	 	\item frequency-domain load modeling
+	 	\item fast Fourier transformation (FFT) on the demand curves of individual consumers for the purpose of finding more representative harmonics
+	 	\item discrete wavelet packet transform (DWPT)
+	 	\item central moments of the data and more specifically, to the mean (first element of the vector), variance (second element), skewness (third element), kurtosis (fourth element), interquartile range (fifth element) and median absolute deviation (MAD) (sixth element)
+	 	\item PCA method
+	 	\item SM performs a non-linear projection into a lower-dimensionality space
+	 	\item CCA is a neural network that projects the data to a lower dimensioned space
+	 	\item CVA method projects the data into new axes and finds a number of variables, called the canonical variables
+	 \end{enumerate}
+	 To evaluate the performance of the clustering algorithm and the different preprocessing methods, the authors use the ratio of within cluster sum of squares to between cluster variation (WCBCR) which refers to the ratio of the distance of each pattern from its cluster centroid. It is down to the basic definition of clustering, one of the 2 within SS or between SS could have bet enough.
+	\item \bibentry{Colley2014}.\\
+	 Nothing innovative in this paper the authors are running K-means using cluster dispersion indicator (CDI) on Queensland data.
+	\item \bibentry{Zhou2013}.\\
+	 Review the different clustering methods and give a nice Figure representing how they could be classified. They use fuzz clustering method (FCM) to then generate load profiles.
+	\item \bibentry{Mcloughlin2015}.\\
+	 Nothing really new compare to \citeauthor{Panapakidis2015}, compare different clustering algorithm, K-means, K-medoid and Self Organizing Maps (SOM) and evaluate them with the Davies-Bouĺdin (DB) validity index. From the clustering the author generate profile classes. He then convert the daily consumption of each household as a specific profile class as from one day to another the profile can change class.
+	\item \bibentry{Benítez2014}.\\
+	 Nothing is really explained on how this clustering is dynamic or how it has been done it's based on K-means `by modifying the static K-means algorithm to obtain the similarity distances among objects taking into account all the Euclidean distances between each pair of objects from their coincident time stamps'.
+	\item \bibentry{viegas2015A}.\\
+	 The authors use a data from the Irish CER\@ a survey data come with and gives a description of the appliances in the household. The methodology consist in creating typical load profiles by fuzzy c-means and checked with the clustering validity index (CVI). The survey data was then used to characterize the cluster with qualitative variables.The prediction was done using 2 models, support vector machine (SVM) and Takagi-Sugeno fuzzy inference system (TS-FIS). In this work, the SVM is performed better, however in a fuzzy logic, the TS-FIS has the advantage of generating interpretable coefficients.
+	\item \bibentry{viegas2015B}.\\
+	 Same paper as the previous one.
+	\item \bibentry{Kwac2013A}.\\
+	 The authors talk about data-driven energy management plan to describe the penetration of analytics in energy sector. The authors highlight again the necessity to normalize the data to understand the behavior. It is called load shapes or normalized patterns. The clustering method is the same as in \cite{Kwac2014}.
+	\item \bibentry{borgeson2015}.\\
+	 Really impressive work developing a service platform to segment the data in region and get load profile among other statistics.
+	\item \bibentry{{Wijaya2014}.\\
+	 They generate a more dynamic clustering approach, where the clustering consistency index (based on the Rand index) includes information of likeliness to shift cluster in future collected data. The authors use design principles to segment the data and focus on some specific contextual information obtained from the survey data. In other word they combined the survey data and the consumption data to generate the clusters.
+	\item \bibentry{Gulbinas2015}.\\
+	 The authors use a modified version of the K-means to do the clustering. They separate work days from non working days. A bit out of the scope but some interesting approaches.
+	\item \bibentry{Mets2015}.\\
+	 The authors first perform a hierarchical clustering in 2 steps first on the normalized daily load profiles of each consumer independently then on those clusters. Thereafter they use fast wavelet transformation on the data and use the g-means (instead of k-means). They use the mean index adequacy to evaluate the partition (compactness and homogeneity of the clusters). The explanation are a bit confusing and the benefit of the fast wavelet transformation and the g-means not demonstrated empirically.
+\end{itemize}
+
+I should include a table checking which methods are used in the paper and which is considered the best.
+\begin{table}[!ht]
+\centering
+\caption[different clustering methods]{The different clustering methods used in the literature}\label{tab:clusteringMethods}
+		\begin{tabular}{lccc}
+			\toprule
+			Method name& abbreviation & reference & details\\ 
+			\toprule 
+			K-means& \cite{kwac2014,dent2013,Rasanen2010}
+			
+			
+		\end{tabular}
+		
+	\end{table}
+
+\subsection{Papers on electrical load disaggregation} 
+\begin{itemize}
+	\item \bibentry{Parson2012}.\\
+	 Non-intrusive appliance load monitoring (NIALM). Two purpose (1) inform on how much each appliance consume, (2) inform consumers of potential saving by changing the time of use (ToU). Implement a improve version of disaggregation model from Viterbi 1967 (uses Hidden Markov Models) and verify its validity with the REDD data base. They use Expectation-Maximization algorithm to generate models of specific appliance instances.
+	\item \bibentry{Zoha2012}.\\
+	 This paper gives a thorough description of the electric load disaggregation, methodologies and challenges.
+	  \begin{enumerate}
+	 	\item Type I:\@ only on/off,
+	 	\item Type II:\@ multi-state appliances with a finite of operating states,
+	 	\item TYpe III:\@ Continuously Variable Devices (CVD),
+	 	\item Type IV:\@ devices which are constantly on.
+	  \end{enumerate}
+	 Disaggregation as a supervised learning algorithm can be done as an optimization based method or as a pattern recognition method. The optimization problem can turn to be very complex when many appliances turn on at the same time or when unknown loads are present. The pattern recognition method has some other drawback as if appliances have relatively similar real power and reactive power, it cannot detect which of those appliances is on. On top of the pattern recognition, naive Bayes process have been trained to generate probability on the state of each individual device.
+	 HMM and ANN are performant to do disaggregation as they can incorporate in their learning temporal as well as appliances state transition information. However HMM as exponentially gaining in complexity with the increase of the number of appliance and need to be retrained every time a new device is added.
+	 Example using disaggregation with non-supervised learning algorithm are given. 
+	 \begin{enumerate}
+	 	\item Clustering (genetic K-means and agglomerative clustering) can be used to do so. However type II appliances generate several cluster (as many as states)
+	 	\item Factorial HMM
+	 	\item Conditional Factorial Hidden Semi-Markov Model(CFHSMM) showed the best unsupervised disaggregation performance achieving an accuracy of 83\%
+	 	\item Hierarchical Dirichlet Process Hidden Semi Markov Model (HDP-HSMM)
+	 \end{enumerate}
+	 Suggested performance evaluation: Detection accuracy, disaggregation accuracy, and overall accuracy or Receiver operating Curves (ROC) to compare the performance of different models.
+	 dataset to test methodology REDD, BLUED and UMass Smart*.
+
+	 The research should focus on unsupervised learning algorithm (KNN, ISODATA, self-organizing tree)
+	\item \bibentry{Zeifman2012}.\\
+	 several requirements need to be fulfilled:
+	 \begin{enumerate}
+	 	\item Feature selection.
+	 	\item Accuracy.
+	 	\item No training.
+	 	\item Near real-time capabilities.
+	 	\item Scalability.
+	 	\item Various appliance types.
+	 \end{enumerate}
+	 óriginal method is in “Viterbi Algorithm with Sparse Transitions (VAST) for Non-intrusive Load Monitoring”+Baranski and ISODATA\@.
+	\item \bibentry{makonin2013}.\\
+	 The Almanac of Minutely Power dataset (AMPds) proposed by \citeauthor{makonin2013} is a record of energy consumption of a single house using 21 sub-meters for an entire year with a 1 minute resolution. They can use the current $I$ and the real power $P$ to do the disaggregation. Therefore they can disaggregate all 4 type of appliances. Not really the kind of solution we are looking for, there is too much equipment to be installed (not realistic). The data can be interesting though.
+	\item \bibentry{batra2014A}.\\
+	 NILMTK gives access to and comparative analysis of energy disaggregation algorithm (written in Python). The authors gives also an exhaustive list of the public dataset available. With reference dataset it is important to know what is the amount of data sub-metered. Combinatorial optimization and factorial hidden Markov model are considered as benchmarks in the NILMTK framework.
+	 Get: G. W. Hart. Non-intrusive appliance load monitoring. Proceedings of the IEEE, 80(12):1870–1891, 1992.
+	 and: J. Z. Kolter and T. Jaakkola. Approximate Inference in Additive Factorial HMMs with Application to Energy Disaggregation. In Proceedings of the International Conference on Artificial Intelligence and Statistics, pages
+	\item \bibentry{Batra2014B}.\\
+	 Focus on a campus data (not that interesting) and uses NILMTK.
+	\item \bibentry{Jazizadeh2014}.\\
+	 The aim of the paper is to describe a methodology to create training dataset using hierarchical clustering. It is interesting in the case of supervised data disaggregation.
+	\item \bibentry{kelly2015}.\\
+	 The paper as its tittle stands deals with deep neural network. It uses stochastic gradient descent to evaluate the parameters. As many parameters are involved in the model, the training requires a lot of data. The training dataset is generating by aggregating randomly individual appliances loads. The training dataset in composed with 50\% of real aggregate and 50\% of generated one. Authors source dataset is UK-DALE\@. They use Python to code their DNN and rely on libraries Lasagne and Theano (Theano allows to use the GPU for calculation). The code is available on GitHub. The overall methodology is really promising and would deserve to have a deeper look. DNN seems to really improve the performance of disaggregation.
+	\item \bibentry{Gabaldon2014}.\\
+	 Not really interesting
+	\item \bibentry{Guo2015}.\\
+	 The authors present in this paper, the Explicit-Duration Hidden Markov Model With Differential Observations (EDHMM-Diff), which is a standard HMM which can also estimate the duration of the appliance activity.
+	\item \bibentry{Ferrez2014}.\\
+	 Not interesting
+	\item \bibentry{Neupane2014}.\\
+	 `Flexibility: the amount of energy and the duration of time to which the device energy profile (energy flexibility) and/or activation time (time flexibility) can be changed.' The authors describe also what are the characteristics of electric appliances to be considered flexible. They also define the a cost-benefit scheme for the different type of appliance. Cost in terms of comfort or user experience and benefit in terms of energy/money savings. Correlation between devices such as the stove and microwave occur due to them supporting a joint activity, cooking. Correlation between appliances can be an interesting information in order to accelerate the disaggregation.
+	\item \bibentry{Beckel2014B}.\\
+	 To read: De Silva D, Yu X, Alahakoon D, Holmes G. A data mining framework for electricity consumption analysis from meter data. IEEE Trans Indus Inform 2011;7:399e407.
+	 McLoughlin F, Duffy A, Conlon M. Characterising domestic electricity consumption patterns by dwelling and occupant socio-economic variables: an Irish case study. Energy Build 2012;48:240e8.
+	 McLoughlin F. Characterising domestic electricity demand for customer load profile segmentation. Ph.D. thesis. Dublin Institute of Technology; 2013.
+	 The authors create 5 groups of features Consumption figures, Ratios, Temporal properties, statistical properties and principal components to train the model and determine the household characteristics. Transformation (i.e. log, square root) are performed on the data to normalize it. Demographic informations, are used to develop classifiers: the kNN (k-Nearest Neighbors) classifier, the LDA (Linear Discriminant Analysis) classifier, the Mahalanobis distance classifier, the SVM (Support Vector Machine) classifier, and the AdaBoost classifier.
+	
+\end{itemize}
