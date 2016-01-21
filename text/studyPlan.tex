@@ -1,0 +1,160 @@
+\documentclass[fleqn,a4paper,twoside,11pt]{article}
+		\usepackage{titlesec}
+		\usepackage{ifpdf}
+		\usepackage{float}
+		\usepackage[english]{babel}
+		\usepackage{amsfonts}
+		\usepackage{amsmath}
+		\usepackage{amssymb}
+		\usepackage{inputenc}
+		\usepackage{graphicx}
+		\usepackage{placeins}
+		%\usepackage[square,comma,sort&compress]{natbib}
+		\usepackage{url}
+		\usepackage{color}
+		\usepackage{setspace}
+		\usepackage[small,sc,bf]{caption}
+		\usepackage[toc,page]{appendix}
+		\usepackage{pdfpages}
+		\usepackage[figuresleft]{rotating}
+		\usepackage{booktabs}
+		\renewcommand{\captionfont}{\small\itshape}
+		\usepackage[bookmarks,bookmarksnumbered,colorlinks,linkcolor=black,filecolor=black,urlcolor=black,citecolor=blue]{hyperref}
+		\usepackage{fancyref}
+		\usepackage[table]{xcolor}
+		\usepackage[square,sort,comma,numbers,round]{natbib}%
+		\usepackage{bibentry}
+		\usepackage{hvfloat}
+		\nobibliography*
+		% Fonts
+		\usepackage{times} %palatino %times
+		
+		% Page style
+		\usepackage{fancyhdr}
+		\pagestyle{fancy}
+		\fancyhf{} % supprime les en-têtes et pieds prédéfinis
+		\renewcommand{\headrulewidth}{0.5pt}% filet en haut de page
+		\addtolength{\headheight}{2.pt} % espace pour le filet
+		\renewcommand{\footrulewidth}{0.pt} % filet en bas
+		\renewcommand{\headwidth}{\textwidth} % filet en bas
+		\fancyfoot[CE,CO]{\thepage}% Left Even, Right Odd
+                \fancyhead[LE]{\footnotesize{G. Le Ray (2015)}} % Left Odd
+		\fancyhead[RO]{\footnotesize{Smart end user data analysis and pattern recognition}} % Right Even
+		
+		
+		% Line spacing
+		\renewcommand{\baselinestretch}{1.1}  
+		
+		% Citation format
+		%\bibpunct{(}{)}{,}{a}{\hspace{-1mm}}{,}
+		%\citepstyle{nature}
+		%\renewcommand{\bibnumfmt}[1]{#1.}
+		
+		% Page format
+		\setlength{\topmargin}{-5mm}
+		\setlength{\oddsidemargin}{0mm}
+		\setlength{\evensidemargin}{\oddsidemargin}
+		\setlength{\textwidth}{160mm}
+		\setlength{\textheight}{237mm}
+		\setlength{\parskip}{0.8\baselineskip}
+		\setlength{\parindent}{0pt}
+		%\setlength{\bibsep}{0.05\baselineskip}
+		\setlength{\mathindent}{0pt}
+		\newcommand{\sups}[1]{$^\textrm{#1}$}
+		
+
+\graphicspath{{./figures/}} % path to figures and images
+% The following can be used if not using custom frontpage
+%\title{EDF data analysis methodology}
+%\author{Guillaume Le Ray}
+%\date{\today}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+% \includeonly{preface,testing} % Only compile those files you are working in (to save compile time, and power)
+
+\begin{document}
+%\frontmatter % roman page numbering
+%\maketitle  % use this if not using custom frontpage
+%\include{frontpage}
+
+
+\thispagestyle{empty}
+{\scriptsize{Technical report, DTU Elektro, Center for Electric Power and Energy, Technical University of Denmark} (\today)}
+
+
+\vspace{2.6mm}
+% \begin{center}
+% \textcolor{red}{\bf \LARGE - CONFIDENTIAL -}
+% \end{center}
+
+\vspace{3cm}
+\begin{spacing}{1.6}
+{\LARGE{\textbf{Study Plan: Smart end user data analysis and pattern recognition}}}
+
+\end{spacing}
+
+\vspace{1cm}
+
+\begin{spacing}{1.1}
+\small{{\bf Guillaume Le Ray}$^{*}$}\\
+\\
+\noindent
+\footnotesize{DTU Elektro, Center for Electric Power and Energy (Energy Analytics \& Markets group), Technical University of Denmark, Kgs.\ Lyngby, Denmark}\\
+\end{spacing}
+
+
+
+\vspace{9cm}
+\begin{spacing}{0.9}
+ { \it \footnotesize{$^{*}$  Corresponding author:}}\\
+ {\footnotesize{G. Le Ray,  \href{http://www.elektro.dtu.dk}{DTU
+ Elektro}, \href{http://www.dtu.dk}{Technical University of
+ Denmark}, }}\\
+ {\footnotesize{Richard Petersens Plads (bg.\ 325),
+ DK-2800 Kgs.\ Lyngby, Denmark.}}\\
+ {\footnotesize{email:
+ \href{mailto:gleray@elektro.dtu.dk}{gleray@elektro.dtu.dk}}} 
+\end{spacing}
+
+
+\newpage
+
+\tableofcontents
+
+\newpage
+\listoffigures
+
+\listoftables
+
+\newpage
+%\mainmatter % arabic page numbering
+
+\include{paperReview}
+%\include{dataPresentation}
+%\include{methodology}
+%\include{results}
+%\include{paperReview}
+%\include{conclusion}
+
+
+% \include{testing}
+
+% \include{biblio/bib}
+
+% \appendix % Alphabetic chapter numbering
+% \renewcommand{\appendixtocname}{Appendix} % Change appendix name for the table od contents
+% \addappheadtotoc % 'Appendix' to the table of contents
+% \include{appendix-code}
+% \backmatter % for glossary, index, back page
+\bibliographystyle{IEEEtranN}
+\bibliography{studyPlan}
+
+%\cleardoublepage
+\appendix
+\include{appendix}
+
+\end{document}
